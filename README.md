@@ -4,7 +4,7 @@ BTK - BitcoinToolKit Live Linux
 
 What is BKT?
 ------------
- Bitcoin Tool Kit (or **BKT**) is a Live Linux (bootable from USB Stick or CD-Rom) which proivides different Tools to manage your Bitcoins in an secured enviroment. It tries to only use stock-software and I provide the step-by-step guid, how to build it on your own, so you don't have to trust me, that I did'nt backdoor it.
+ Bitcoin Tool Kit (or **BKT**) is a Live Linux (bootable from USB Stick or CD-Rom) which proivides different Tools to manage your Bitcoins in an secured enviroment. It tries to only use stock-software and I provide the step-by-step guid, how to build it on your own, so you don't have to trust me, that I didn't backdoor it.
  
  
 Provided Tools
@@ -14,7 +14,7 @@ Provided Tools
 
 * Based on debian (NetInstall)
 * Graphical Interface: LXDE 
-* Browser: 
+* Browser: midori
     
 #### Bitcoin tools
 
@@ -29,7 +29,9 @@ Provided Tools
 Disclaimer
 -----------
 
-    I cant vouch for any software I recommend here to be secure and backdoor-free. Further I can't guarantee for the proposed setup, to be the most secure and/or robust. I tried to be as cautious as possible.
+    I can't vouch for any software I recommend here to be secure and backdoor-free. 
+    Further I can't guarantee for the proposed setup to be the most secure and/or 
+    robust. I tried to be as cautious as possible.
 
 **This is only a guideline to help you getting started - everything happens on your own risk.**
  
@@ -50,11 +52,12 @@ How to build it from scratch
 ### Prerequisits
 
 * A working Linux Distro (I use Ubuntu 13.10)
+* Connection to the internet, while installing the different tools
 * VirtualBox, wget, other tools
     
     `host#> sudo aptitude install virtualbox wget`
  
-* An USB-Stick, a CdRom or any other bootable medium to install BKT to
+* An USB-Stick, a CD-Rom or any other bootable medium to install BKT to
 * BKT should be able to run on any linux-compatible platform. Any PC, Notebook, Netbook, Raspberry Pie, ...
     
     
@@ -78,7 +81,7 @@ How to build it from scratch
     Download Debian NetInst 
       http://cdimage.debian.org/debian-cd/7.2.0/i386/iso-cd/
   
-      `host#> wget http://cdimage.debian.org/debian-cd/7.2.0/i386/iso-cd/debian-7.2.0-i386-netinst.iso`
+      host#> wget http://cdimage.debian.org/debian-cd/7.2.0/i386/iso-cd/debian-7.2.0-i386-netinst.iso
 
   
   **Step 4)**
@@ -121,9 +124,11 @@ How to build it from scratch
           "Laptop" and "Standard system utilities"
       
 
-  **Step 5)**
+  **Step 6)**
+   Reboot the new virtual machine and login as **root**
    
+   Initialize the base system with LXDE and other tools
    
-   
-   
-   
+    bkt#>
+        apt-get update
+        apt-get install apt-get install lxde wget midori
