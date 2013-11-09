@@ -132,3 +132,7 @@ How to build it from scratch
     bkt#>
         apt-get update
         apt-get install apt-get install lxde wget midori
+        
+
+
+wip...
