@@ -124,15 +124,54 @@ How to build it from scratch
           "Laptop" and "Standard system utilities"
       
 
-  **Step 6)**
+**Step 6)**
    Reboot the new virtual machine and login as **root**
    
    Initialize the base system with LXDE and other tools
    
     bkt#>
         apt-get update
-        apt-get install apt-get install lxde wget midori
+        apt-get upgrade
+        apt-get install lxde wget midori git
         
+        # set LXDE as default GUI, check that "startlxde" is selected
+        update-alternatives --config x-session-manager
+
+        # LXDE starten
+        /etc/init.d/lightdm start
+
+**Step 7)** (optional) Install VirtualBox ClientExtensions (for better Performance inside the VM)
+
+In the VirtualBox Window, click on "Devices" > "Install Guest Additions"
+
+Open a root-terminal
+
+    bkt#> 
+        apt-get install build-essential module-assistant
+        m-a prepare
+        mount /media/cdrom
+        sh /media/cdrom/VBoxLinuxAdditions.run
+    
 
 
+**Step X)** Generate a Live-Enviroment via Linux Live Kit (http://www.linux-live.org/)
+
+Open a root terminal
+
+    bkt#>
+        apt-get install squashfs-tools
+        cd
+        git clone https://github.com/Tomas-M/linux-live.git
+        cd linux-live
+        
+        #edit config -> set name to "bkt"
+        #(todo, provide own config)
+        #   LIVEKITNAME="bkt"
+        #   VMLINUZ=/boot/vmlinuz-3.2.0-4-486 
+
+        nano .config
+
+        ./build
+        
+        
 wip...
