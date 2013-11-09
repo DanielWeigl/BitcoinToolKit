@@ -65,23 +65,23 @@ How to build it from scratch
  untempered install.
  
  If you want to take a shortcut, you can download prebuild images from here:
-  <URL>
+  PUT_URL_HERE...
   
  
   **Step 1)** Invent the universe (should be already done)
 
-  **Step 3)**
+  **Step 2)**
     Create a working directory
       `host#> mkdir ~/bkt; cd ~/bkt`
     
-  **Step 2)**
+  **Step 3)**
     Download Debian NetInst 
       http://cdimage.debian.org/debian-cd/7.2.0/i386/iso-cd/
   
       `host#> wget http://cdimage.debian.org/debian-cd/7.2.0/i386/iso-cd/debian-7.2.0-i386-netinst.iso`
 
   
-  **Step 3)**
+  **Step 4)**
     Create a new Virtual Image in virtualbox
       
       host#> 
@@ -101,9 +101,8 @@ How to build it from scratch
         VBoxManage startvm bkt
 
 
-  **Step 4)**
-    Follow the Debian-Install (I used the Text-Based one) with defaults to install the Debian NetImg inside the new
-    VirtualBox Image.
+  **Step 5)**
+    Follow the Debian-Install (I used the Text-Based one) with defaults to install the Debian NetImg inside the new     VirtualBox Image.
    
     Some notes on settings:
       *) Language/KeyMap: As you like
@@ -113,7 +112,7 @@ How to build it from scratch
       *) User: bkt
       *) User password: As you like, but remember it (not really security relevant)
       *) Timezone: As you like
-      *) Partition: <Guided, Use full disk>, <All Files in one partition>
+      *) Partition: <Guided, Use entire disk>, <All files in one partition>
       
       *) Wait for the install to finish
 
@@ -121,7 +120,7 @@ How to build it from scratch
       *) At the "Choose Software to install" step, only select following points:
           "Laptop" and "Standard system utilities"
       
-      
+
   **Step 5)**
    
    
