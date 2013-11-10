@@ -15,7 +15,10 @@ Provided Tools
 * Based on Debian (NetInstall)
 * Graphical Interface: LXDE 
 * Browser: midori
-    
+* gpg/gpa
+* tor
+
+
 #### Bitcoin tools
 
 * Electrum Wallet (Lightweight Desktop Bitcoin-Client - http://electrum.org)
@@ -133,7 +136,7 @@ How to build it from scratch
     root@btk#>
         apt-get update
         apt-get upgrade
-        apt-get install lxde wget midori git
+        apt-get install lxde wget midori git dpkg-sig gpa
         
         # set LXDE as default GUI, check that "startlxde" is selected
         update-alternatives --config x-session-manager
@@ -167,7 +170,7 @@ Open a normal terminal - basefolder
 Open a root terminal - general tools
     
     root@btk#>
-        apt-get install qrencode zbar-tools
+        apt-get install qrencode zbar-tools 
         
 **Step 8.1)** BitAdress.org
 
@@ -214,6 +217,22 @@ Open a root terminal
     root@btk#>
         apt-get install python-qt4 python-pip
         pip install http://download.electrum.org/Electrum-1.9.2.tar.gz#md5=0666168901b7aa2c0d7cf42947966ceb
+
+**Step 8.5)** Armory
+
+Open a root terminal    
+
+    root@btk#>
+        cd /tmp
+        wget "https://bitcoinarmory.googlecode.com/files/armory_0.88.1-beta_OfflineBundle_Ubuntu-10.04-32bit.tar.gz"
+        tar xf armory_*
+        cd Armo*
+        gpg --recv-keys --keyserver keyserver.ubuntu.com 98832223
+        dpkg-sig --verify *.deb
+        ./Install_DblClick_RunInTerminal.sh
+        
+        # some dependencies are unmet - force install of missing packages
+        apt-get install -f
 
 
 **Step X)** Generate a Live-Enviroment via Linux Live Kit (http://www.linux-live.org/)
