@@ -21,6 +21,7 @@ Provided Tools
 * Electrum Wallet (Lightweight Desktop Bitcoin-Client - http://electrum.org)
 * Armory (Bitcoin-Client, able to sign offline transactions - )
 * BitAddress.html (Tools for generating Paperwallets, working with Private/Public Keys - http://www.bitaddress.org)
+* Blockchain.info Backup Decrypt Tool (https://blockchain.info/DecryptWallet.html)
 * ZBar (Scan QR Codes with a WebCam - http://zbar.sourceforge.net/)
 * SX (Commandline Tools for lowlevel Bitcoin Actions, experts-only - http://sx.dyne.org/)
   
@@ -157,24 +158,40 @@ Open a root-terminal
     
 **Step 8)** Bitcoin related Tools/Programs
 
-Open a normal terminal    
+Open a normal terminal - basefolder 
 
     btk#>
-        cd ~
+        cd ~/Desktop
         mkdir BitcoinTools; cd BitcoinTools
+
+Open a root terminal - general tools
+    
+    btk#>
+        apt-get install qrencode zbar-tools
         
 **Step 8.1)** BitAdress.org
 
 Open a normal terminal    
 
     btk#>
-        cd ~/BitcoinTools
+        cd ~/Desktop/BitcoinTools
         wget https://raw.github.com/pointbiz/bitaddress.org/master/bitaddress.org.html
         
         # check if the checksum is in the changelog:
-        wget -o/dev/null -O- http://www.bitaddress.org/pgpsignedmsg.txt | grep -P2 `sha1sum bitaddress.org.html` - 
+        wget -o/dev/null -O- http://www.bitaddress.org/pgpsignedmsg.txt | \
+            grep -P2 `sha1sum bitaddress.org.html` - || echo CHECKSUM FAIL
 
-**Step 8.2)** SX
+**Step 8.2)** Blockchain.info Wallet Recovery Tool
+
+Open a normal terminal    
+
+    btk#>
+        cd ~/Desktop/BitcoinTools/
+        wget https://blockchain.info/DecryptWallet.html
+        mv DecryptWallet.html Decrypt_BlockchainInfo_Wallet.html
+        sha1sum Decrypt_BlockchainInfo_Wallet.html | grep 50451490e0e5ac571b5ff0c6c52cb5c47440fbd5 || echo CHECKSUM FAIL
+
+**Step 8.3)** SX
 
 Open a root terminal - install/compile the sx-toolset
 
@@ -186,7 +203,7 @@ Open a root terminal - install/compile the sx-toolset
 Open a normal terminal - install a nice offline copy of the documentation (optional)
     
     btk#>
-        mkdir ~/BitcoinTools/doc; cd ~/BitcoinTools/doc
+        mkdir ~/Desktop/BitcoinTools/doc; cd ~/Desktop/BitcoinTools/doc
         wget -m http://sx.dyne.org/index.html
         mv sx.dyne.org/ sx_doc
 
