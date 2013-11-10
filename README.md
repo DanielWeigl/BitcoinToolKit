@@ -2,9 +2,9 @@
 BTK - BitcoinToolKit Live Linux
 ===============================
 
-What is BKT?
+What is BTK?
 ------------
- Bitcoin Tool Kit (or **BKT**) is a Live Linux (bootable from USB Stick or CD-Rom) which proivides different Tools to manage your Bitcoins in an secured enviroment. It tries to only use stock-software and I provide the step-by-step guid, how to build it on your own, so you don't have to trust me, that I didn't backdoor it.
+ Bitcoin Tool Kit (or **BTK**) is a Live Linux (bootable from USB Stick or CD-Rom) which proivides different Tools to manage your Bitcoins in an secured enviroment. It tries to only use stock-software and I provide the step-by-step guide, how to build it on your own, so you don't have to trust me, that I didn't backdoor it.
  
  
 Provided Tools
@@ -42,9 +42,9 @@ How to build it from scratch
  
 ### Used Conventions in this document
   
-  `host#> command`  specifies a command which gets executed in the build-enviroment
+  `host#> command`  specifies a command which gets executed in the build-environment
 
-  `btk#> command`   specifies a command which gets executed in the bitcoin-tool-kit enviroment (inside virtualbox)
+  `btk#> command`   specifies a command which gets executed in the bitcoin-tool-kit environment (inside virtualbox)
   
   If there is a multiline-command, I only write the shell-token once, so you can easily copy-paste it
   
@@ -57,14 +57,14 @@ How to build it from scratch
     
     `host#> sudo aptitude install virtualbox wget`
  
-* An USB-Stick, a CD-Rom or any other bootable medium to install BKT to
+* An USB-Stick, a CD-Rom or any other bootable medium to install BTK to
 * BKT should be able to run on any linux-compatible platform. Any PC, Notebook, Netbook, Raspberry Pie, ...
     
     
 ### Step-by-Step
 
  
- Here follows a step-by-step guide, how to build your own BKT-bootable Linux, so you can be sure to get an
+ Here follows a step-by-step guide, how to build your own BTK-bootable Linux, so you can be sure to get an
  untempered install.
  
  If you want to take a shortcut, you can download prebuild images from here:
@@ -75,7 +75,7 @@ How to build it from scratch
 
   **Step 2)**
     Create a working directory
-      `host#> mkdir ~/bkt; cd ~/bkt`
+      `host#> mkdir ~/btk; cd ~/btk`
     
   **Step 3)**
     Download Debian NetInst 
@@ -88,20 +88,20 @@ How to build it from scratch
     Create a new Virtual Image in virtualbox
       
       host#> 
-        VBoxManage createvm --name "bkt" --register
-        VBoxManage modifyvm "bkt" --memory 1024 --acpi on --boot1 dvd
-        VBoxManage modifyvm "bkt" --nic1 bridged --bridgeadapter1 eth0
-        VBoxManage modifyvm "bkt" --ostype Debian
+        VBoxManage createvm --name "btk" --register
+        VBoxManage modifyvm "btk" --memory 1024 --acpi on --boot1 dvd
+        VBoxManage modifyvm "btk" --nic1 bridged --bridgeadapter1 eth0
+        VBoxManage modifyvm "btk" --ostype Debian
         
-        VBoxManage createhd --filename ./bkt.vdi --size 10000
-        VBoxManage storagectl "bkt" --name "IDE" --add ide
-        VBoxManage storageattach "bkt" --storagectl "IDE" \
-            --port 0 --device 0 --type hdd --medium ./bkt.vdi
-        VBoxManage storageattach "bkt" --storagectl "IDE" \
+        VBoxManage createhd --filename ./btk.vdi --size 10000
+        VBoxManage storagectl "btk" --name "IDE" --add ide
+        VBoxManage storageattach "btk" --storagectl "IDE" \
+            --port 0 --device 0 --type hdd --medium ./btk.vdi
+        VBoxManage storageattach "btk" --storagectl "IDE" \
             --port 1 --device 0 --type dvddrive --medium debian-7.2.0-i386-netinst.iso
 
         #Start the VM
-        VBoxManage startvm bkt
+        VBoxManage startvm btk
 
 
   **Step 5)**
@@ -109,10 +109,10 @@ How to build it from scratch
    
     Some notes on settings:
       *) Language/KeyMap: As you like
-      *) Hostname: bkt
-      *) Domain: bkt
+      *) Hostname: btk
+      *) Domain: btk
       *) Root-Password: As you like, but remember it (not really security relevant)
-      *) User: bkt
+      *) User: btk
       *) User password: As you like, but remember it (not really security relevant)
       *) Timezone: As you like
       *) Partition: <Guided, Use entire disk>, <All files in one partition>
@@ -129,7 +129,7 @@ How to build it from scratch
    
    Initialize the base system with LXDE and other tools
    
-    bkt#>
+    btk#>
         apt-get update
         apt-get upgrade
         apt-get install lxde wget midori git
@@ -149,7 +149,7 @@ In the VirtualBox Window, click on "Devices" > "Install Guest Additions"
 
 Open a root-terminal
 
-    bkt#> 
+    btk#> 
         apt-get install build-essential module-assistant
         m-a prepare
         mount /media/cdrom
@@ -159,7 +159,7 @@ Open a root-terminal
 
 Open a normal terminal    
 
-    bkt#>
+    btk#>
         cd ~
         mkdir BitcoinTools; cd BitcoinTools
         
@@ -167,7 +167,7 @@ Open a normal terminal
 
 Open a normal terminal    
 
-    bkt#>
+    btk#>
         cd ~/BitcoinTools
         wget https://raw.github.com/pointbiz/bitaddress.org/master/bitaddress.org.html
         
@@ -176,16 +176,16 @@ Open a normal terminal
 
 **Step 8.2)** SX
 
-Open a root terminal    
+Open a root terminal - install/compile the sx-toolset
 
-    bkt#>
+    btk#>
         cd /tmp
         wget http://sx.dyne.org/install-sx.sh
         bash ./install-sx.sh
 
-Open a normal terminal
+Open a normal terminal - install a nice offline copy of the documentation (optional)
     
-    bkt#>
+    btk#>
         mkdir ~/BitcoinTools/doc; cd ~/BitcoinTools/doc
         wget -m http://sx.dyne.org/index.html
         mv sx.dyne.org/ sx_doc
@@ -195,15 +195,15 @@ Open a normal terminal
 
 Open a root terminal
 
-    bkt#>
+    btk#>
         apt-get install squashfs-tools
         cd
         git clone https://github.com/Tomas-M/linux-live.git
         cd linux-live
         
-        #edit config -> set name to "bkt"
+        #edit config -> set name to "btk"
         #(todo, provide own config)
-        #   LIVEKITNAME="bkt"
+        #   LIVEKITNAME="btk"
         #   VMLINUZ=/boot/vmlinuz-3.2.0-4-486 
 
         nano .config
@@ -211,4 +211,4 @@ Open a root terminal
         ./build
         
         
-wip...
+wip...bkt
