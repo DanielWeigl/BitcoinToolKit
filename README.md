@@ -136,6 +136,9 @@ How to build it from scratch
         
         # set LXDE as default GUI, check that "startlxde" is selected
         update-alternatives --config x-session-manager
+        
+        # and start it at boot
+        update-rc.d lightdm defaults
 
         # LXDE starten
         /etc/init.d/lightdm start
