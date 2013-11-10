@@ -12,7 +12,7 @@ Provided Tools
 
 #### Linux tools, not Bitcoin related
 
-* Based on debian (NetInstall)
+* Based on Debian (NetInstall)
 * Graphical Interface: LXDE 
 * Browser: midori
     
@@ -130,7 +130,7 @@ How to build it from scratch
    
    Initialize the base system with LXDE and other tools
    
-    btk#>
+    root@btk#>
         apt-get update
         apt-get upgrade
         apt-get install lxde wget midori git
@@ -150,7 +150,7 @@ In the VirtualBox Window, click on "Devices" > "Install Guest Additions"
 
 Open a root-terminal
 
-    btk#> 
+    root@btk#> 
         apt-get install build-essential module-assistant
         m-a prepare
         mount /media/cdrom
@@ -166,7 +166,7 @@ Open a normal terminal - basefolder
 
 Open a root terminal - general tools
     
-    btk#>
+    root@btk#>
         apt-get install qrencode zbar-tools
         
 **Step 8.1)** BitAdress.org
@@ -195,7 +195,7 @@ Open a normal terminal
 
 Open a root terminal - install/compile the sx-toolset
 
-    btk#>
+    root@btk#>
         cd /tmp
         wget http://sx.dyne.org/install-sx.sh
         bash ./install-sx.sh
@@ -207,12 +207,22 @@ Open a normal terminal - install a nice offline copy of the documentation (optio
         wget -m http://sx.dyne.org/index.html
         mv sx.dyne.org/ sx_doc
 
+**Step 8.4)** Electrum
+
+Open a root terminal    
+
+    root@btk#>
+        apt-get install python-qt4 python-pip
+        pip install http://download.electrum.org/Electrum-1.9.2.tar.gz#md5=0666168901b7aa2c0d7cf42947966ceb
+        su bkt
+        cd ~/Desktop/BitcoinTools
+        ln -s `which electrum` electrum
 
 **Step X)** Generate a Live-Enviroment via Linux Live Kit (http://www.linux-live.org/)
 
 Open a root terminal
 
-    btk#>
+    root@btk#>
         apt-get install squashfs-tools
         cd
         git clone https://github.com/Tomas-M/linux-live.git
