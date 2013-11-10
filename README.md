@@ -155,6 +155,40 @@ Open a root-terminal
         mount /media/cdrom
         sh /media/cdrom/VBoxLinuxAdditions.run
     
+**Step 8)** Bitcoin related Tools/Programs
+
+Open a normal terminal    
+
+    bkt#>
+        cd ~
+        mkdir BitcoinTools; cd BitcoinTools
+        
+**Step 8.1)** BitAdress.org
+
+Open a normal terminal    
+
+    bkt#>
+        cd ~/BitcoinTools
+        wget https://raw.github.com/pointbiz/bitaddress.org/master/bitaddress.org.html
+        
+        # check if the checksum is in the changelog:
+        wget -o/dev/null -O- http://www.bitaddress.org/pgpsignedmsg.txt | grep -P2 `sha1sum bitaddress.org.html` - 
+
+**Step 8.2)** SX
+
+Open a root terminal    
+
+    bkt#>
+        cd /tmp
+        wget http://sx.dyne.org/install-sx.sh
+        bash ./install-sx.sh
+
+Open a normal terminal
+    
+    bkt#>
+        mkdir ~/BitcoinTools/doc; cd ~/BitcoinTools/doc
+        wget -m http://sx.dyne.org/index.html
+        mv sx.dyne.org/ sx_doc
 
 
 **Step X)** Generate a Live-Enviroment via Linux Live Kit (http://www.linux-live.org/)
