@@ -65,7 +65,7 @@ How to build it from scratch
 ### Step-by-Step
 
  
- Here follows a step-by-step guide, how to build your own BTK-bootable Linux, so you can be sure to get an
+ Here follows a step-by-step guide, how to build your own BTK-bootable Linux from scratch, so you can be sure to get an
  untempered install.
  
  If you want to take a shortcut, you can download prebuild images from here:
