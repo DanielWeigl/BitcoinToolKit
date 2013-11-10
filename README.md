@@ -59,7 +59,7 @@ How to build it from scratch
     `host#> sudo aptitude install virtualbox wget`
  
 * An USB-Stick, a CD-Rom or any other bootable medium to install BTK to
-* BKT should be able to run on any linux-compatible platform. Any PC, Notebook, Netbook, Raspberry Pie, ...
+* BKT should be able to run on any linux-compatible platform. Any PC, Notebook or Netbook. Maybe later I will try to bring it to RasperryPie
     
     
 ### Step-by-Step
@@ -214,9 +214,7 @@ Open a root terminal
     root@btk#>
         apt-get install python-qt4 python-pip
         pip install http://download.electrum.org/Electrum-1.9.2.tar.gz#md5=0666168901b7aa2c0d7cf42947966ceb
-        su bkt
-        cd ~/Desktop/BitcoinTools
-        ln -s `which electrum` electrum
+
 
 **Step X)** Generate a Live-Enviroment via Linux Live Kit (http://www.linux-live.org/)
 
